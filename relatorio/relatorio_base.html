@@ -1,0 +1,242 @@
+<html><head><meta charset="utf-8"><title>GPN - Plataforma de Entregas - Relatório</title></head><body style="font-family:'Times New Roman'">
+<p style="text-align:center"><b>Instituto Federal do Espírito Santo (Ifes)</b><br>Bacharelado em Sistemas de Informação<br>Disciplina: Gerência de Processos de Negócio</p>
+<h1 style="text-align:center">Plataforma de Entregas: Projeto de Sistema de Informação Orientado a Processos de Negócio</h1>
+<p style="text-align:center">Tema 7: pedidos, restaurantes, entregadores e clientes</p>
+<p style="text-align:center">Integrantes: Luan Oliveira, Gabriele Modesto, Danilo Pimenta, Guilherme Costa</p>
+<p style="text-align:center">Entrega: 30/11/2026</p>
+<p><i>[Documento base. Trechos entre colchetes são instruções ou pendências e devem ser removidos antes da exportação para relatorio.pdf. Os rascunhos já escritos são sugestões para o grupo revisar.]</i></p>
+
+<h1>Sumário</h1>
+<p>[Inserir sumário automático do Google Docs: Inserir &gt; Sumário]</p>
+
+<h1>1. Modelo de negócio e contexto</h1>
+<h2>1.1 Descrição do serviço</h2>
+<p>A plataforma [nome provisório: RotaRango] intermedeia pedidos de comida entre clientes e restaurantes parceiros e organiza a entrega por entregadores autônomos cadastrados. A plataforma recebe o pagamento do cliente, repassa ao restaurante e ao entregador os valores devidos e retém uma comissão por pedido.</p>
+<h2>1.2 Público-alvo e problema atendido</h2>
+<ul>
+<li><b>Clientes:</b> pessoas que querem pedir refeições com rapidez, acompanhar o pedido e ter a quem recorrer quando algo dá errado.</li>
+<li><b>Restaurantes:</b> estabelecimentos que querem vender por delivery sem manter frota própria.</li>
+<li><b>Entregadores:</b> autônomos que buscam renda flexível com pagamento previsível.</li>
+</ul>
+<p>Problema: [descrever a dor principal, por exemplo, pedidos por telefone/WhatsApp sem rastreio, sem pagamento integrado e sem tratamento padronizado de ocorrências].</p>
+<h2>1.3 Proposta de valor</h2>
+<p>[Rascunho] Para o cliente: pedido e pagamento em poucos passos, acompanhamento em tempo real e reembolso ágil. Para o restaurante: novos clientes, gestão do cardápio e repasse automático. Para o entregador: ofertas de corrida próximas e repasse semanal transparente.</p>
+<h2>1.4 Business Model Canvas (adaptado)</h2>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><td><b>Parceiros-chave</b><br>Restaurantes; entregadores autônomos; gateway de pagamento; serviço de mapas/rotas; banco (repasses)</td>
+<td><b>Atividades-chave</b><br>Intermediar pedidos; despachar entregas; processar pagamentos e repasses; tratar ocorrências</td>
+<td><b>Proposta de valor</b><br>[ver 1.3]</td>
+<td><b>Relacionamento</b><br>App self-service; notificações; central de ocorrências; avaliações</td>
+<td><b>Segmentos de clientes</b><br>Consumidores finais; restaurantes; entregadores</td></tr>
+<tr><td colspan="2"><b>Recursos-chave</b><br>Plataforma (app e web); base de parceiros; dados de pedidos e rotas</td>
+<td></td>
+<td colspan="2"><b>Canais</b><br>App do cliente; portal do restaurante; app do entregador</td></tr>
+<tr><td colspan="2"><b>Estrutura de custos</b><br>Infraestrutura; taxas do gateway; suporte; reembolsos e estornos; marketing</td>
+<td></td>
+<td colspan="2"><b>Fontes de receita</b><br>Comissão sobre pedidos; taxa de entrega; [planos para restaurantes]</td></tr>
+</table>
+<p>[Explicação textual do Canvas: 1 a 2 parágrafos ligando os blocos aos processos P1 a P8.]</p>
+<h2>1.5 Participantes e regras relevantes</h2>
+<ul>
+<li>R01: só restaurantes credenciados e ativos aparecem para o cliente.</li>
+<li>R02: o pedido só é enviado ao restaurante após o pagamento ser autorizado.</li>
+<li>R03: o cliente pode cancelar sem custo até o restaurante aceitar o pedido.</li>
+<li>R04: a entrega só é concluída com o código de confirmação informado pelo cliente.</li>
+<li>R05: o repasse é semanal e desconta comissões, estornos e taxas.</li>
+<li>[demais regras]</li>
+</ul>
+<h2>1.6 Escopo do sistema</h2>
+<p><b>Dentro do escopo:</b> credenciamento de restaurantes e entregadores, cardápio, pedido e pagamento, preparo, despacho e entrega, cancelamento/ocorrência/reembolso, repasse financeiro.</p>
+<p><b>Fora do escopo:</b> processamento do cartão em si (feito pelo gateway), cálculo de rota (serviço de mapas), emissão de nota fiscal, marketing e cupons, logística própria de frota.</p>
+
+<h1>2. Requisitos e histórias de usuário</h1>
+<h2>2.1 Perfis de usuário</h2>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>Perfil</th><th>Necessidades</th></tr>
+<tr><td>Cliente</td><td>Encontrar restaurantes, pedir, pagar, acompanhar, cancelar e reclamar</td></tr>
+<tr><td>Restaurante (gerente e cozinha)</td><td>Manter cardápio, aceitar e preparar pedidos, acompanhar repasses</td></tr>
+<tr><td>Entregador</td><td>Receber ofertas, coletar, entregar e consultar ganhos</td></tr>
+<tr><td>Plataforma (analista de cadastro, suporte, financeiro)</td><td>Aprovar cadastros, tratar ocorrências, executar repasses</td></tr>
+</table>
+<h2>2.2 Histórias de usuário</h2>
+<p>[Cada integrante escreve as histórias dos seus processos. Formato: Como [perfil], quero [funcionalidade], para [benefício]. Critérios verificáveis.]</p>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>ID</th><th>História</th><th>Critérios de aceitação</th><th>Processo</th><th>Tela</th></tr>
+<tr><td>HU01</td><td>Como restaurante, quero solicitar meu credenciamento enviando meus documentos, para começar a vender na plataforma.</td><td>Formulário exige CNPJ, alvará e dados bancários; solicitação recebe protocolo; status visível ao restaurante.</td><td>P1</td><td>T-R01</td></tr>
+<tr><td>HU02</td><td>Como cliente, quero pagar o pedido no app, para não precisar pagar na entrega.</td><td>Pedido só segue ao restaurante com pagamento autorizado; recusa exibe motivo e permite trocar a forma de pagamento.</td><td>P4</td><td>T-C03</td></tr>
+<tr><td>HU03</td><td>Como entregador, quero ver a oferta com distância e valor antes de aceitar, para decidir se a corrida compensa.</td><td>Oferta mostra distância, valor e tempo para aceitar; expirado o tempo, a oferta vai para outro entregador.</td><td>P6</td><td>T-E02</td></tr>
+<tr><td>HU04</td><td>Como cliente, quero cancelar o pedido antes do aceite do restaurante, para não ser cobrado.</td><td>Botão disponível só antes do aceite; estorno integral solicitado ao gateway; cliente notificado.</td><td>P7</td><td>T-C05</td></tr>
+<tr><td>HU05</td><td>[...]</td><td></td><td></td><td></td></tr>
+</table>
+<h2>2.3 Requisitos funcionais</h2>
+<p>[RF01... listar, referenciando as histórias]</p>
+<h2>2.4 Requisitos não funcionais</h2>
+<ul>
+<li>RNF01 Segurança: dados de pagamento nunca armazenados pela plataforma (tokenização no gateway); acesso por perfil.</li>
+<li>RNF02 Rastreabilidade: toda mudança de status do pedido registra data, hora e autor.</li>
+<li>RNF03 Disponibilidade: [ex.: 99,5% no horário de funcionamento dos restaurantes].</li>
+<li>RNF04 Acessibilidade: telas seguem WCAG 2.1 AA (contraste, leitor de tela, alvos de toque).</li>
+<li>RNF05 Desempenho: [ex.: oferta de corrida entregue ao entregador em até 5 s].</li>
+<li>RNF06 Privacidade: tratamento de dados pessoais conforme a LGPD.</li>
+</ul>
+
+<h1>3. Inventário e descrição dos processos</h1>
+<h2>3.1 Inventário</h2>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>ID</th><th>Processo</th><th>Objetivo</th><th>Responsável (integrante)</th><th>Participantes</th><th>Vínculos</th></tr>
+<tr><td>P1</td><td>Credenciamento de restaurante</td><td>Habilitar um restaurante a vender</td><td>[ ]</td><td>Restaurante, Plataforma</td><td>Pré-condição de P3 e P4</td></tr>
+<tr><td>P2</td><td>Cadastro e aprovação de entregador</td><td>Habilitar um entregador a receber corridas</td><td>[ ]</td><td>Entregador, Plataforma</td><td>Pré-condição de P6</td></tr>
+<tr><td>P3</td><td>Gestão de cardápio e disponibilidade</td><td>Manter itens, preços e horário de funcionamento</td><td>[ ]</td><td>Restaurante, Plataforma</td><td>Alimenta P4</td></tr>
+<tr><td>P4</td><td>Realização do pedido e pagamento</td><td>Converter a escolha do cliente em pedido pago</td><td>[ ]</td><td>Cliente, Plataforma, Gateway, Restaurante</td><td>Dispara P5; exceções em P7</td></tr>
+<tr><td>P5</td><td>Aceite e preparo do pedido</td><td>Aceitar ou recusar e preparar o pedido</td><td>[ ]</td><td>Restaurante, Plataforma</td><td>Dispara P6; recusa leva a P7</td></tr>
+<tr><td>P6</td><td>Despacho e execução da entrega</td><td>Levar o pedido do restaurante ao cliente</td><td>[ ]</td><td>Plataforma, Entregador, Cliente, Restaurante</td><td>Usa P2; conclusão alimenta P8; falha leva a P7</td></tr>
+<tr><td>P7</td><td>Cancelamento, ocorrência e reembolso</td><td>Tratar cancelamentos e reclamações com estorno quando cabível</td><td>[ ]</td><td>Cliente, Plataforma, Restaurante, Gateway</td><td>Exceção de P4, P5 e P6; afeta P8</td></tr>
+<tr><td>P8</td><td>Repasse financeiro</td><td>Pagar restaurantes e entregadores pelo período</td><td>[ ]</td><td>Plataforma, Banco, Restaurante, Entregador</td><td>Consome P6 e P7</td></tr>
+</table>
+
+<h2>3.2 Descrição dos processos</h2>
+<p>[Modelo a repetir para cada processo. Preencher todos os campos.]</p>
+
+<h3>P1. Credenciamento de restaurante</h3>
+<p><b>Narrativa:</b> O restaurante envia a solicitação com documentos; o analista de cadastro confere; se houver pendência, o restaurante é notificado para corrigir; aprovado, o restaurante assina o contrato digital e é ativado.</p>
+<p><b>Início:</b> restaurante envia solicitação. <b>Entradas:</b> CNPJ, alvará, dados bancários. <b>Saídas:</b> restaurante ativo ou solicitação recusada. <b>Resultado de negócio:</b> novo parceiro habilitado.</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> [ ]</p>
+<p><b>Exceções e alternativas:</b> documentação incompleta (prazo de correção de [N] dias, depois arquiva); [ ]</p>
+<p><b>Atividades e decisões principais (dados manipulados):</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P2. Cadastro e aprovação de entregador</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> [ ]</p>
+<p><b>Exceções e alternativas:</b> [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P3. Gestão de cardápio e disponibilidade</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> [ ]</p>
+<p><b>Exceções e alternativas:</b> [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P4. Realização do pedido e pagamento</h3>
+<p><b>Narrativa:</b> O cliente monta o carrinho, informa endereço e forma de pagamento e confirma. A plataforma valida disponibilidade e solicita autorização ao gateway. Autorizado, o pedido é criado e enviado ao restaurante; recusado, o cliente pode trocar a forma de pagamento ou desistir.</p>
+<p><b>Início:</b> cliente confirma o carrinho. <b>Entradas:</b> itens, endereço, forma de pagamento. <b>Saídas:</b> pedido pago enviado ao restaurante, ou pedido não criado. <b>Resultado de negócio:</b> venda efetivada.</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> R01, R02; [ ]</p>
+<p><b>Exceções e alternativas:</b> pagamento recusado; item indisponível; restaurante fecha durante a compra; [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P5. Aceite e preparo do pedido</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> [ ]</p>
+<p><b>Exceções e alternativas:</b> restaurante não responde em [N] min (cancelamento automático e P7); [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P6. Despacho e execução da entrega</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> R04; [ ]</p>
+<p><b>Exceções e alternativas:</b> nenhum entregador aceita; cliente ausente; [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P7. Cancelamento, ocorrência e reembolso</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> R03; [ ]</p>
+<p><b>Exceções e alternativas:</b> [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h3>P8. Repasse financeiro</h3>
+<p><b>Narrativa:</b> [ ]</p>
+<p><b>Início / entradas / saídas / resultado:</b> [ ]</p>
+<p><b>Participantes e papéis:</b> [ ]</p>
+<p><b>Regras, pré e pós-condições:</b> R05; [ ]</p>
+<p><b>Exceções e alternativas:</b> [ ]</p>
+<p><b>Atividades e decisões principais:</b> [ ]</p>
+<p><b>Telas que apoiam:</b> [ ]</p>
+
+<h1>4. Modelos BPMN e colaboração</h1>
+<p>[Ferramenta sugerida: bpmn.io / Camunda Modeler. Salvar o .bpmn em processos/ e a imagem exportada aqui. Identificar tarefas de usuário, de serviço, eventos de mensagem, gateways e caminhos de exceção.]</p>
+<h2>4.1 Diagrama de colaboração</h2>
+<p>[Pools: Cliente, Plataforma, Restaurante, Entregador, Gateway de pagamento. Mensagens: pedido confirmado, autorização de pagamento, novo pedido, pedido pronto, oferta de corrida, entrega concluída, estorno.]</p>
+<p>[imagem]</p>
+<h2>4.2 a 4.9 Diagramas P1 a P8</h2>
+<p>[Um subtítulo por processo, com a imagem do diagrama e as justificativas de modelagem não triviais.]</p>
+
+<h1>5. Validação dos modelos</h1>
+<p>[Modelo a repetir para cada processo.]</p>
+<h3>Validação de P[N]</h3>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>Item</th><th>Conteúdo</th></tr>
+<tr><td>Trace válido 1</td><td>&lt;A, B, C, ...&gt;</td></tr>
+<tr><td>Trace válido 2</td><td>&lt;A, B, D, ...&gt;</td></tr>
+<tr><td>Trace proibido</td><td>&lt;...&gt; Restrição violada: [ ]</td></tr>
+<tr><td>Regras de precedência, exclusividade, obrigatoriedade, simultaneidade</td><td>[ex.: "Enviar pedido ao restaurante" só ocorre após "Autorizar pagamento"; "Aceitar" e "Recusar" são exclusivos]</td></tr>
+<tr><td>Deadlocks / inalcançáveis / conclusão</td><td>[análise: todo gateway paralelo tem junção correspondente; todo caminho chega a um evento de fim; ...]</td></tr>
+</table>
+<p>[Distinguir caminhos alternativos (XOR) de atividades concorrentes (AND): em paralelos, diferentes ordenações são válidas.]</p>
+
+<h1>6. Projeto das interfaces</h1>
+<h2>6.1 Mapa de navegação</h2>
+<p>[imagem do mapa por perfil: Cliente (T-C), Restaurante (T-R), Entregador (T-E), Plataforma (T-P)]</p>
+<p>Link do protótipo (Figma): [ ]</p>
+<h2>6.2 Telas principais</h2>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>Tela</th><th>Perfil</th><th>Atividade BPMN</th><th>Entradas</th><th>Ações</th><th>Resultado</th></tr>
+<tr><td>T-C03 Pagamento</td><td>Cliente</td><td>P4: Informar pagamento</td><td>Forma de pagamento</td><td>Confirmar, trocar</td><td>Pedido pago ou recusa</td></tr>
+<tr><td>[ ]</td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h2>6.3 Fluxo de uso completo</h2>
+<p>[Do pedido do cliente (P4) até a entrega concluída (P6), com capturas de cada tela em sequência.]</p>
+
+<h1>7. Rastreabilidade e arquitetura conceitual</h1>
+<h2>7.1 Matriz de rastreabilidade</h2>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>História</th><th>Processo / atividade BPMN</th><th>Funcionalidade / tela</th></tr>
+<tr><td>HU01</td><td>P1: Enviar solicitação</td><td>T-R01 Cadastro do restaurante</td></tr>
+<tr><td>HU02</td><td>P4: Autorizar pagamento</td><td>T-C03 Pagamento</td></tr>
+<tr><td>[ ]</td><td></td><td></td></tr>
+</table>
+<h2>7.2 Visão conceitual</h2>
+<p><b>Módulos:</b> Cadastro e credenciamento; Catálogo/cardápio; Pedidos; Pagamentos; Logística/despacho; Ocorrências; Financeiro/repasses; Notificações.</p>
+<p><b>Dados principais:</b> Cliente, Restaurante, Entregador, Item de cardápio, Pedido, Pagamento, Entrega, Ocorrência, Repasse.</p>
+<p><b>Integrações externas:</b> gateway de pagamento; serviço de mapas/rotas; banco (transferências); serviço de notificações push/SMS.</p>
+<p>[diagrama conceitual]</p>
+
+<h1>8. Organização do trabalho</h1>
+<p>Repositório GitHub: [URL]</p>
+<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>Integrante</th><th>Processos</th><th>Seção transversal</th></tr>
+<tr><td>Luan Oliveira</td><td>[ ]</td><td>[ ]</td></tr>
+<tr><td>Gabriele Modesto</td><td>[ ]</td><td>[ ]</td></tr>
+<tr><td>Danilo Pimenta</td><td>[ ]</td><td>[ ]</td></tr>
+<tr><td>Guilherme Costa</td><td>[ ]</td><td>[ ]</td></tr>
+</table>
+<p><b>Cronograma:</b> até 20/11 Canvas, processos e histórias fechados; até 25/11 BPMNs e descrições; até 27/11 validação e protótipos; 28 e 29/11 matriz, revisão, slides e ZIP.</p>
+<h2>Checklist de entrega</h2>
+<ul>
+<li>☐ Dois processos por integrante e integração coerente entre eles</li>
+<li>☐ Participantes identificados e colaboração BPMN com mensagens</li>
+<li>☐ Descrição e detalhamento de cada processo</li>
+<li>☐ Histórias de usuário com critérios de aceitação</li>
+<li>☐ BPMN editável e diagramas legíveis de todos os processos</li>
+<li>☐ Traces válidos/inválidos e análise de correção dos fluxos</li>
+<li>☐ Protótipos de interfaces vinculados às atividades</li>
+<li>☐ Matriz de rastreabilidade e visão conceitual do sistema</li>
+<li>☐ ZIP com relatorio.pdf, processos/, apresentacao/ e README.md com URL do GitHub</li>
+</ul>
+</body></html>
