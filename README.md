@@ -26,15 +26,26 @@ A entrega é em **30/11/2026**.
 
 | ID | Processo | Responsável |
 |---|---|---|
-| P1 | Credenciamento de restaurante | a definir |
-| P2 | Cadastro e aprovação de entregador | a definir |
-| P3 | Gestão de cardápio e disponibilidade | a definir |
-| P4 | Realização do pedido e pagamento | a definir |
-| P5 | Aceite e preparo do pedido | a definir |
-| P6 | Despacho e execução da entrega | a definir |
-| P7 | Cancelamento, ocorrência e reembolso | a definir |
-| P8 | Repasse financeiro | a definir |
-| C1 | Colaboração (Cliente, Plataforma, Restaurante, Entregador, Gateway) | a definir |
+| P1 | Credenciamento de restaurante | Gabriele Modesto |
+| P2 | Cadastro e aprovação de entregador | Guilherme Costa |
+| P3 | Gestão de cardápio e disponibilidade | Gabriele Modesto |
+| P4 | Realização do pedido e pagamento | Luan Oliveira |
+| P5 | Aceite e preparo do pedido | Danilo Pimenta |
+| P6 | Despacho e execução da entrega | Guilherme Costa |
+| P7 | Cancelamento, ocorrência e reembolso | Danilo Pimenta |
+| P8 | Repasse financeiro | Luan Oliveira |
+| C1 | Colaboração (Cliente, Plataforma, Restaurante, Entregador, Gateway) | Luan Oliveira |
+
+## Partes comuns
+
+| Integrante | Parte comum |
+|---|---|
+| Luan Oliveira | Colaboração BPMN, matriz de rastreabilidade e repositório |
+| Gabriele Modesto | Modelo de negócio (Canvas, escopo e regras) |
+| Danilo Pimenta | Histórias de usuário e requisitos |
+| Guilherme Costa | Figma, mapa de navegação e slides |
+
+Cada integrante faz a descrição, o BPMN, a validação (traces) e as telas dos próprios processos.
 
 ## Como contribuir
 
