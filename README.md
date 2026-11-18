@@ -34,7 +34,7 @@ A entrega é em **30/11/2026**.
 | P6 | Despacho e execução da entrega | Guilherme Costa |
 | P7 | Cancelamento, ocorrência e reembolso | Danilo Pimenta |
 | P8 | Repasse financeiro | Luan Oliveira |
-| C1 | Colaboração (Cliente, Plataforma, Restaurante, Entregador, Gateway) | Luan Oliveira |
+| C1 | Colaboração (Cliente, Plataforma, Restaurante, Entregador, Gateway, Banco) | Luan Oliveira |
 
 ## Partes comuns
 
